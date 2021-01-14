@@ -1,1 +1,1 @@
-# swagger-coc-starter
+# swagger-doc-starter
