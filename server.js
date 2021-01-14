@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocumentation = require('./swagger.json');
+
+
 import bodyParser from 'body-parser';
 import { getUserList ,findUserById } from "./user";
 app.use(bodyParser.urlencoded({extended:true}));
@@ -124,6 +128,8 @@ app.delete("/deleteUser/:id", (req, res) => {
     });
 })
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocumentation));
 
 app.listen(8000, () => {
   console.log("server listening on port 8000!");
